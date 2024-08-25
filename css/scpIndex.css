@@ -1,0 +1,126 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #fff;
+}
+
+header {
+    background-color: #222;
+    padding: 20px 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+a.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #e62429;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a.btn:hover {
+    background-color: #b71c1c;
+}
+
+/* Efecto Parallax */
+.parallax {
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallax1 {
+    background-image: url('ruta_a_tu_imagen_1.jpg');
+}
+
+#parallax2 {
+    background-image: url('ruta_a_tu_imagen_2.jpg');
+}
+
+.normal {
+    padding: 50px 0;
+    background-color: #222;
+    color: #fff;
+}
+
+form {
+    display: grid;
+    grid-gap: 15px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #e62429;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #b71c1c;
+}
+
+/* Estilos de la página de búsqueda */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.image-item {
+    position: relative;
+}
+
+.image-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    display: none;
+}
+
+.image-item:hover .description {
+    display: block;
+}
