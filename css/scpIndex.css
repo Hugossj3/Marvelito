@@ -15,7 +15,22 @@ header {
     background-color: #222;
     padding: 20px 0;
 }
-
+nav{
+    position: sticky;
+    top:0;
+    background-color: #222;
+    display: grid;
+    grid-template-columns: repeat(12,auto);
+}
+.nav-item{
+    width: 100%;
+    column-span: 3;
+    text-align: center;
+}
+.nav-item a{
+    text-decoration: none;
+    color: white;
+}
 .container {
     width: 80%;
     max-width: 1200px;
@@ -23,6 +38,11 @@ header {
     padding: 20px;
     background-color: rgb(143, 11, 11);
     border-radius: 8px;
+}
+.container #search{
+    width: 40%;
+    border-radius: 5px;
+    heigth:20px;
 }
 
 a.btn {
