@@ -7,4 +7,16 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// Puedes agregar más funciones para la búsqueda e interacción en search.html si lo deseas
+let nombre;
+let correo;
+let edad;
+let pFavorito;
+
+let posibleNombre=document.getElementById("nombre").value;
+let posibleCorreo=document.getElementById("email").value;
+let posibleEdad=Number(document.getElementById("edad").value);
+let posiblePersonaje=document.getElementById("personaje").value;
+
+if(posibleNombre.lenght){
+
+}
