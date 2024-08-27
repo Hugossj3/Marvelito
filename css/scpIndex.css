@@ -3,7 +3,6 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -17,15 +16,17 @@ header {
 }
 nav{
     position: sticky;
-    top:0;
+    top:0px;
+    z-index: 5;
     background-color: #222;
     display: grid;
-    grid-template-columns: repeat(12,auto);
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
 }
 .nav-item{
     width: 100%;
-    column-span: 3;
     text-align: center;
+    padding: 10px;
 }
 .nav-item a{
     text-decoration: none;
@@ -45,6 +46,8 @@ nav{
     heigth:20px;
 }
 
+
+
 a.btn {
     display: inline-block;
     margin-top: 10px;
@@ -61,7 +64,8 @@ a.btn:hover {
 
 /* Efecto Parallax */
 .parallax {
-    height: 100vh;
+    padding: 10% 5% 10% 5%;
+    height: 500px;
     background-attachment: fixed;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -77,9 +81,17 @@ a.btn:hover {
 }
 
 .normal {
-    padding: 50px 0;
+    padding: 50px;
     background-color: #222;
     color: #fff;
+}
+.content{
+    margin: 10%;
+    color: rgb(221, 136, 255);
+    border: solid black;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: rgba(0, 0,0, 0.7);
 }
 
 form {
