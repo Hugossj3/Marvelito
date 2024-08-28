@@ -62,6 +62,10 @@ a.btn:hover {
     background-color: #b71c1c;
 }
 
+.error{
+    font-weight: bolder;
+    color: yellow;
+}
 /* Efecto Parallax */
 .parallax {
     padding: 10% 5% 10% 5%;

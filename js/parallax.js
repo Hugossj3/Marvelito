@@ -7,16 +7,105 @@ window.addEventListener('scroll', function() {
     });
 });
 
-let nombre;
-let correo;
-let edad;
+let datoNombre;
+let datoCorreo;
+let datoEdad;
 let pFavorito;
+let usuarioGuardado=false;
 
-let posibleNombre=document.getElementById("nombre").value;
-let posibleCorreo=document.getElementById("email").value;
-let posibleEdad=Number(document.getElementById("edad").value);
+
 let posiblePersonaje=document.getElementById("personaje").value;
 
-if(posibleNombre.lenght){
+function validarNombre(){
+    let correcto=true;
+    let posibleNombre=document.getElementById("nombre").value;
+    const eNombre=document.getElementById("nombreError");
+    
+    if(posibleNombre.trim().length<3){
+        correcto=false;
+        eNombre.textContent="El nombre tiene que tener al menos 3 caracteres";
+    }else{
+        datoNombre=posibleNombre;
+        eNombre.textContent="";
+        correcto=true;
+    }
+    return correcto;
+}
+
+function validarCorreo(){
+    let correcto=true;
+    let posibleCorreo=document.getElementById("email").value;
+    const eCorreo=document.getElementById("correoError");
+    
+    let eRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!eRegex.test(posibleCorreo.trim())){
+        correcto=false;
+        eCorreo.textContent="El formato de correo que ha ingresado es incorrecto";
+    }else{
+        datoCorreo=posibleCorreo;
+        eCorreo.textContent="";
+        correcto=true;
+    }
+    
+    return correcto;
+}
+
+function validarEdad(){
+    let correcto=true;
+    let posibleEdad=document.getElementById("edad").value;
+    const eEdad=document.getElementById("edadError");
+    
+    if(posibleEdad<12 || posibleEdad>120){
+        correcto=false;
+        eEdad.textContent="Tiene que ser mayor de 12 o no haber sobrebibido a la Pepa"
+    }else{
+        datoEdad=posibleEdad;
+        eEdad.textContent="";
+        correcto=true;
+    }
+    
+    return correcto;
+}
+
+function guardarUsuario(){
+    pFavorito=document.getElementById("personaje").value;
+    let miUsuario=[{
+        nombre:datoNombre,
+        edad:datoEdad,
+        correo:datoCorreo,
+        personajeFavorito:pFavorito
+    }];
+    console.log(miUsuario);
+    localStorage.setItem("usu",JSON.stringify(miUsuario));
+}
+
+document.getElementById("nombre").addEventListener("input",validarNombre);
+document.getElementById("email").addEventListener("input",validarCorreo);
+document.getElementById("edad").addEventListener("input",validarEdad);
+
+document.getElementById("envioDatos").addEventListener("submit",function (event){
+    event.preventDefault();
+    console.log("se envia");
+    envioDatos();
+});
+function envioDatos(){
+    if(validarNombre() && validarCorreo() && validarEdad()){
+        guardarUsuario();
+        usuarioGuardado=true;
+        alert("El usuario se ha registrado con exito");
+    }
+    console.log(localStorage.getItem("usu"));
+}
+
+
+
+function cargarCatologo(){
 
 }
+if(usuarioGuardado){
+    cargarCatologo();
+}
+
+
+
+
