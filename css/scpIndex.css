@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #222;
 }
 
 h1, h2, h3 {
@@ -31,6 +32,9 @@ nav{
 .nav-item a{
     text-decoration: none;
     color: white;
+}
+main{
+    background-color: white;
 }
 .container {
     width: 80%;
@@ -91,11 +95,14 @@ a.btn:hover {
 }
 .content{
     margin: 10%;
-    color: rgb(221, 136, 255);
+    color:rgb(255, 127, 127);
     border: solid black;
     border-radius: 10px;
     padding: 30px;
-    background-color: rgba(0, 0,0, 0.7);
+    background-color: rgba(0, 0,0, 0.8);
+}
+hr{
+    color: white;
 }
 
 form {
@@ -119,14 +126,32 @@ form input, form button {
     font-size: 16px;
 }
 
-form button {
+button {
     background-color: #e62429;
+    border-color: red;
     color: white;
     cursor: pointer;
 }
 
 form button:hover {
     background-color: #b71c1c;
+}
+
+
+footer{
+    background-color: #222;
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
+.grid-foot{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.foot-item:nth-of-type(2){
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
 
 /* Estilos de la página de búsqueda */

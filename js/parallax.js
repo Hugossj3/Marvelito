@@ -92,19 +92,26 @@ function envioDatos(){
     if(validarNombre() && validarCorreo() && validarEdad()){
         guardarUsuario();
         usuarioGuardado=true;
-        alert("El usuario se ha registrado con exito");
+        alert("El usuario se ha registrado con exito. Ya puede visitar nuestro catalogo");
     }
-    console.log(localStorage.getItem("usu"));
+    
 }
 
-
+function abrirCatalogo(){
+    if(usuarioGuardado){
+        window.location.href="../busqueda.html"
+        cargarCatologo();
+    }else{
+        const noRegistro=document.getElementById("sinRegistro");
+        noRegistro.innerHTML="Necesitas Registrarte para acceder al catalogo";
+    }
+    
+}
 
 function cargarCatologo(){
+    //aqui se cargaran las tarjetitas correspondientes a los personajes
+}
 
-}
-if(usuarioGuardado){
-    cargarCatologo();
-}
 
 
 

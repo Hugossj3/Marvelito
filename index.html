@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mundo Friki</title>
     <link rel="stylesheet" href="css/scpIndex.css">
+    <script src="https://kit.fontawesome.com/051b845acb.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -47,8 +48,9 @@
         <div class="container">
             <input type="hidden">
             <h3 id="seccion-galeria" id="seccion-galeria">¿Qué quieres saber?</h3>
-            <p>Explora la vasta colección de personajes y eventos de Marvel.</p>
-            <a href="busqueda.html" class="btn">Ir a la búsqueda</a>
+            <p>Explora la vasta colección de personajes y eventos de Marvel y Anime.</p>
+            <button onclick="abrirCatalogo()">Ir al Catalogo</button>
+            <div class="error" id="sinRegistro"></div>
     </section>
 
     <section class="parallax" id="parallax2">
@@ -90,10 +92,19 @@
             </form>
         </div>
     </section>
-
+    <hr>
     <footer>
-        <input type="hidden">
-        <p id="seccion-informacion">© 2024 Enciclopedia Marvel. Todos los derechos reservados.</p>
+        <h2>Necesitas Saber</h2>
+        <div class="grid-foot">
+            <div class="foot-item">
+                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Todos los derechos reservados para el creador.</p>
+            </div>
+            <div class="foot-item">
+                <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-youtube" style="color: #ffffff;"></i><br/>
+            </div>
+        </div>
     </footer>
 
     <script src="js/parallax.js"></script>
