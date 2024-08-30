@@ -185,3 +185,27 @@ footer{
 .image-item:hover .description {
     display: block;
 }
+@media (max-width:500px) {
+    .parallax{
+        padding: 0;
+    }
+    .content{
+        width: 100%;
+        margin: 0;
+        padding: 2px;
+    }
+    .normal{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+    }
+    .foot-item{
+        grid-column: 1/-1;
+    }
+}

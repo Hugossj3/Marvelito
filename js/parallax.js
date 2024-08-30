@@ -83,11 +83,6 @@ document.getElementById("nombre").addEventListener("input",validarNombre);
 document.getElementById("email").addEventListener("input",validarCorreo);
 document.getElementById("edad").addEventListener("input",validarEdad);
 
-document.getElementById("envioDatos").addEventListener("submit",function (event){
-    event.preventDefault();
-    console.log("se envia");
-    envioDatos();
-});
 function envioDatos(){
     if(validarNombre() && validarCorreo() && validarEdad()){
         guardarUsuario();
@@ -96,6 +91,13 @@ function envioDatos(){
     }
     
 }
+
+document.getElementById("envioDatos").addEventListener("submit",function (event){
+    event.preventDefault();
+    console.log("se envia");
+    envioDatos();
+});
+
 
 function abrirCatalogo(){
     if(usuarioGuardado){
