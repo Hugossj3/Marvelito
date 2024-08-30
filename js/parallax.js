@@ -7,6 +7,8 @@ window.addEventListener('scroll', function() {
     });
 });
 
+
+
 let datoNombre;
 let datoCorreo;
 let datoEdad;
@@ -14,7 +16,7 @@ let pFavorito;
 let usuarioGuardado=false;
 
 
-let posiblePersonaje=document.getElementById("personaje").value;
+let posiblePersonaje="";
 
 function validarNombre(){
     let correcto=true;
@@ -75,7 +77,7 @@ function guardarUsuario(){
         correo:datoCorreo,
         personajeFavorito:pFavorito
     }];
-    console.log(miUsuario);
+    console.log(miUsuario[0]);
     localStorage.setItem("usu",JSON.stringify(miUsuario));
 }
 
@@ -100,9 +102,9 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 
 function abrirCatalogo(){
+     //window.location.href="../busqueda.html"
     if(usuarioGuardado){
         window.location.href="../busqueda.html"
-        cargarCatologo();
     }else{
         const noRegistro=document.getElementById("sinRegistro");
         noRegistro.innerHTML="Necesitas Registrarte para acceder al catalogo";
@@ -110,9 +112,7 @@ function abrirCatalogo(){
     
 }
 
-function cargarCatologo(){
-    //aqui se cargaran las tarjetitas correspondientes a los personajes
-}
+
 
 
 

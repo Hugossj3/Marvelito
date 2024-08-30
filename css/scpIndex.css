@@ -156,6 +156,8 @@ footer{
 
 /* Estilos de la página de búsqueda */
 .image-gallery {
+    width: 100%;
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -163,6 +165,9 @@ footer{
 
 .image-item {
     position: relative;
+    width: 400px;
+    background-color: #b71c1c;
+    border-radius: 10px;
 }
 
 .image-item img {
