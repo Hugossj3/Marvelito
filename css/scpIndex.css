@@ -190,6 +190,41 @@ footer{
 .image-item:hover .description {
     display: block;
 }
+img{
+    width: 100%;
+}
+#cart {
+    position: fixed;
+    text-align: center;
+    right: -650px;
+    top: 0;
+    width: 650px;
+    height: 100%;
+    border-radius: 30%;
+    background-color: #b71c1c;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 5;
+}
+#cart.open {
+    right: 0;
+}
+#cart.close {
+    right: -600px;
+}
+#cart-item h2 {
+    padding: 20px;
+    margin: 0;
+    background-color: #4CAF50;
+    color: white;
+}
+#cart-item {
+    padding: 20px;
+}
+#cart-item .info{
+    color: yellow;
+}
 @media (max-width:500px) {
     .parallax{
         padding: 0;
