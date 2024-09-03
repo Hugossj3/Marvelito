@@ -102,7 +102,7 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 
 function abrirCatalogo(){
-     window.location.href="../busqueda.html"
+    //window.location.href="../busqueda.html"
     if(usuarioGuardado){
         window.location.href="../busqueda.html"
     }else{
