@@ -89,6 +89,7 @@ function envioDatos(){
     if(validarNombre() && validarCorreo() && validarEdad()){
         guardarUsuario();
         usuarioGuardado=true;
+        localStorage.setItem("registrado",usuarioGuardado);
         alert("El usuario se ha registrado con exito. Ya puede visitar nuestro catalogo");
     }
     
@@ -103,7 +104,7 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 function abrirCatalogo(){
     //window.location.href="../busqueda.html"
-    if(usuarioGuardado){
+    if(localStorage.getItem("registrado")){
         window.location.href="busqueda.html";
     }else{
         const noRegistro=document.getElementById("sinRegistro");
