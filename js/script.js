@@ -1,10 +1,10 @@
 const galeria=[
-    {id:1,nombre:"Capitan America",descripcion:"en proceso", image:"../img/capImage.jpg"},
-    {id:2,nombre:"Goku",descripcion:"en proceso", image:"../img/gokuImage.jfif"},
-    {id:3,nombre:"Iron Man",descripcion:"en proceso", image:"../img/ironManImage.webp"},
-    {id:4,nombre:"Naruto",descripcion:"en proceso", image:"../img/narutoImage.webp"},
-    {id:5,nombre:"Natsu",descripcion:"en proceso", image:"../img/natsuImage.jfif"},
-    {id:6,nombre:"Thor",descripcion:"en proceso", image:"../img/thorImage.jfif"}
+    {id:1,nombre:"Capitan America",descripcion:"en proceso", image:"/img/capImage.jpg"},
+    {id:2,nombre:"Goku",descripcion:"en proceso", image:"/img/gokuImage.jfif"},
+    {id:3,nombre:"Iron Man",descripcion:"en proceso", image:"/img/ironManImage.webp"},
+    {id:4,nombre:"Naruto",descripcion:"en proceso", image:"/img/narutoImage.webp"},
+    {id:5,nombre:"Natsu",descripcion:"en proceso", image:"/img/natsuImage.jfif"},
+    {id:6,nombre:"Thor",descripcion:"en proceso", image:"/img/thorImage.jfif"}
 ];
 const marcos=document.getElementById("miGaleria");
 const tarjetita=document.getElementById("cart");
