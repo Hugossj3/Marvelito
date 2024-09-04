@@ -90,6 +90,7 @@ function envioDatos(){
         guardarUsuario();
         usuarioGuardado=true;
         localStorage.setItem("registrado",usuarioGuardado);
+        cargarSesion();
         alert("El usuario se ha registrado con exito. Ya puede visitar nuestro catalogo");
     }
     
@@ -112,6 +113,19 @@ function abrirCatalogo(){
     }
     
 }
+// function cargarSesion(){
+//     if(localStorage.getItem("registrado")){
+//         document.getElementById("confi").innerHTML=`
+//             Hola ${localStorage.getItem(usu)[0].nombre}
+//             <button onclick="cerrarSesion()">Cerrar Sesion</button>
+//         `;
+//     }else{
+//         document.getElementById("confi").innerHTML=``;
+//     }
+// }
+// function cerrarSesion(){
+//     localStorage.setItem("item")
+// }
 
 
 

@@ -226,6 +226,9 @@ img{
 #cart-item .info{
     color: yellow;
 }
+.cierre{
+    
+}
 @media (max-width:500px) {
     .parallax{
         padding: 0;
