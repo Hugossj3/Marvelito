@@ -124,7 +124,7 @@ function abrirCatalogo(){
 //     }
 // }
 // function cerrarSesion(){
-//     localStorage.setItem("item")
+//     localStorage.setItem("registrado",false)
 // }
 
 
