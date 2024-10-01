@@ -104,7 +104,7 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 
 function abrirCatalogo(){
-    //window.location.href="../busqueda.html"
+    window.location.href="busqueda.html"
     if(localStorage.getItem("registrado")){
         window.location.href="busqueda.html";
     }else{

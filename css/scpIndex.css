@@ -161,7 +161,10 @@ footer{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 3%;
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 4%;
 }
 
 .image-item {
@@ -169,6 +172,7 @@ footer{
     width: 400px;
     background-color: #b71c1c;
     border-radius: 10px;
+    margin: 20px;
 }
 
 .image-item img {
@@ -226,9 +230,7 @@ img{
 #cart-item .info{
     color: yellow;
 }
-.cierre{
-    
-}
+
 @media (max-width:500px) {
     .parallax{
         padding: 0;
