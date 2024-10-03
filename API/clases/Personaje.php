@@ -16,13 +16,5 @@ class Personaje{
     public function leer(){
 
     }
-    public function insertar(){
-        
-    }
-    public function actualizar(){
-        
-    }
-    public function borrar(){
-        
-    }
+
 }
