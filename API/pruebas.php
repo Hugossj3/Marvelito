@@ -1,16 +1,14 @@
-<?
+<?php
 
-require_once("conexion.php");
+require_once "conexion.php";
 
 
 $a=dameConexion();
-
 $query="SELECT img FROM personaje";
-$stm=$a->prepare($query);
-$result=$stm->get_result();
+$stm=mysqli_query($a,$query);
 
-if($result->num_rows>0){
-    while($personaje=$result->fetch_assoc()){
-        extract($personaje);
+if($stm->num_rows>0){
+    while($personaje=mysqli_fetch_assoc($stm)){
+        echo "<img src='".$personaje["img"]."'>";
     }
 }
