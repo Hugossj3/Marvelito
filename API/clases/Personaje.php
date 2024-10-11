@@ -1,20 +1,19 @@
 <?php
 
-require ("../conexion.php");
+require_once __DIR__ . "/../conexion.php";
 class Personaje{
     private string $tabla="personaje";
-    private int $id;
-    private string $nombre;
-    private string $tipoP;
-    private string $descripcion;
-    private string $img;
     private $conn;
 
     public function __construct(){
         $this->conn =dameConexion();
     }
     public function leer(){
-
+       $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla);
+		
+		$stmt->execute();
+		$result = $stmt->get_result();
+		return $result;
     }
 
 }

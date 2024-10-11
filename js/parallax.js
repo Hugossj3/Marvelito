@@ -104,9 +104,9 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 
 function abrirCatalogo(){
-    window.location.href="busqueda.html"
+    window.location.href="busqueda.php"
     if(localStorage.getItem("registrado")){
-        window.location.href="busqueda.html";
+        window.location.href="busqueda.php";
     }else{
         const noRegistro=document.getElementById("sinRegistro");
         noRegistro.innerHTML="Necesitas Registrarte para acceder al catalogo";

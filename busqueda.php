@@ -35,6 +35,30 @@
         </div>
         <div class="image-gallery" id="miGaleria">
             <!-- Aquí se insertarán las imágenes con descripciones -->
+            <?php 
+            require "./API/clases/Personaje.php";
+            $a=new Personaje();
+            $result=$a->leer();
+            while($person=$result->fetch_assoc()){
+                extract($person);
+
+                $datos=[
+                    "id"=> $id,
+                    "nombre"=> $nombre,
+                    "img"=> $img,
+                    "descripcion"=> $descripcion
+                ];
+
+                $lista=json_encode($datos);
+                echo "<div class='image-item' onclick='mostrarDescripcion($id,$lista)'>";
+                echo "<img src='$img' alt='Descripción imagen'>";
+                echo "<h3 style='color:white'>".$nombre."</h3>";
+                echo "<div class='description'>";
+                echo    "<p>Ver descripcion</p>";
+                echo "</div>";
+                echo "</div>";
+            }
+            ?>
             
             
         </div>
@@ -43,8 +67,8 @@
         <div id="cart-item"></div>
     </div>
     
-    
     <script src="js/script.js"></script>
+    
 </body>
 
 </html>
