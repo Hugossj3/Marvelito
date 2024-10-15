@@ -1,3 +1,6 @@
+const registro=document.getElementById("formu-registro");
+const acceso=document.getElementById("acceso");
+const dentro=document.getElementById("registrado");
 // Efecto Parallax en JavaScript
 window.addEventListener('scroll', function() {
     const parallaxElements = document.querySelectorAll('.parallax');
@@ -7,12 +10,17 @@ window.addEventListener('scroll', function() {
     });
 });
 
-
+function abrirRegistro(){
+    event.preventDefault();
+    registro.style.display="block";
+    acceso.style.display="none";
+    dentro.style.display="none";
+}
 
 let datoNombre;
 let datoCorreo;
 let datoEdad;
-let pFavorito;
+let contra;
 let usuarioGuardado=false;
 
 
@@ -70,12 +78,12 @@ function validarEdad(){
 }
 
 function guardarUsuario(){
-    pFavorito=document.getElementById("personaje").value;
+    contra=document.getElementById("personaje").value;
     let miUsuario=[{
         nombre:datoNombre,
         edad:datoEdad,
         correo:datoCorreo,
-        personajeFavorito:pFavorito
+        personajeFavorito:contra
     }];
     console.log(miUsuario[0]);
     localStorage.setItem("usu",JSON.stringify(miUsuario));
@@ -87,11 +95,7 @@ document.getElementById("edad").addEventListener("input",validarEdad);
 
 function envioDatos(){
     if(validarNombre() && validarCorreo() && validarEdad()){
-        guardarUsuario();
-        usuarioGuardado=true;
-        localStorage.setItem("registrado",usuarioGuardado);
-        cargarSesion();
-        alert("El usuario se ha registrado con exito. Ya puede visitar nuestro catalogo");
+        
     }
     
 }

@@ -150,6 +150,9 @@ button {
 form button:hover {
     background-color: #b71c1c;
 }
+#registrado,#formu-registro{
+    display: none;
+}
 
 
 footer{

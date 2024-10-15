@@ -34,11 +34,14 @@
         <div class="content">
             <h2>Bienvenido a nuestra Web</h2>
             <p>
-                Aqui podras encontrar la informacion que buscas de personajes del mundo de los superheroes de Marvel y de los fantasticos animes.<br/><br/><br/>
+                Aqui podras encontrar la informacion que buscas de personajes del mundo de los superheroes de Marvel y
+                de los fantasticos animes.<br /><br /><br />
 
-                Registarte en la parte de abajo de nuestra pagina y conseguirás el acceso para revisar varios de nuestros articulos descriptivos referidos a esta cultura popular.<br/><br/><br/>
+                Registarte en la parte de abajo de nuestra pagina y conseguirás el acceso para revisar varios de
+                nuestros articulos descriptivos referidos a esta cultura popular.<br /><br /><br />
 
-                Una vez registrado puedes revisar el amplio Catalogo al cual nos referiamos en la misma página. <br/><br/><br/>
+                Una vez registrado puedes revisar el amplio Catalogo al cual nos referiamos en la misma página.
+                <br /><br /><br />
 
                 Si quieres saber más de nosotros revisa el apartado de Informacion y visita nuestras redes sociales
             </p>
@@ -57,15 +60,37 @@
     <section class="parallax" id="parallax2">
         <div class="content">
             <h2>Descubre este Universo</h2>
-            <p>De hecho, está pagina es perfecta para aquellos que aun no han empezado con este mundillo de peliculas, comics, series, mangas, etc.<br/><br/>
-                Asi que te lo dejamos fácil, en nuestro Catalogo tendrás tarjetitas interactivas en las que podrás consultar la información que te proporcionamos nosotros.
+            <p>De hecho, está pagina es perfecta para aquellos que aun no han empezado con este mundillo de peliculas,
+                comics, series, mangas, etc.<br /><br />
+                Asi que te lo dejamos fácil, en nuestro Catalogo tendrás tarjetitas interactivas en las que podrás
+                consultar la información que te proporcionamos nosotros.
 
             </p>
         </div>
     </section>
 
     <section class="normal">
-        <div class="container">
+        <div class="container" id="registrado"></div>
+        <div class="container" id="acceso">
+            <form>
+                <div>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email">
+                    <div class="error" id="correoError"></div>
+                </div>
+                <div>
+                    <label for="personaje">Contraseña:</label>
+                    <input type="password" id="contra" name="contra">
+                </div>
+                <div>
+                    <button type="submit">Iniciar Sesion</button>
+                </div>
+                <div>
+                    <button onclick="abrirRegistro()">Registrarse</button>
+                </div>
+            </form>
+        </div>
+        <div class="container" id="formu-registro">
             <h3 id="seccion-registro">Formulario de Datos Personales</h3>
             <form id="envioDatos">
                 <div>
@@ -84,8 +109,8 @@
                     <div class="error" id="edadError"></div>
                 </div>
                 <div>
-                    <label for="personaje">Personaje Favorito:</label>
-                    <input type="text" id="personaje" name="personaje">
+                    <label for="personaje">Contraseña:</label>
+                    <input type="password" id="contra" name="contra">
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
@@ -98,12 +123,13 @@
         <h2>Necesitas Saber</h2>
         <div class="grid-foot">
             <div class="foot-item">
-                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Todos los derechos reservados para el creador.</p>
+                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Todos los derechos reservados para el creador.
+                </p>
             </div>
             <div class="foot-item">
                 <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
                 <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-youtube" style="color: #ffffff;"></i><br/>
+                <i class="fa-brands fa-youtube" style="color: #ffffff;"></i><br />
             </div>
         </div>
     </footer>
