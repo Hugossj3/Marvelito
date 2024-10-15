@@ -15,60 +15,78 @@
 
     <nav>
         <div class="nav-item">
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
         </div>
         <div class="nav-item">
-            <a href="index.html">Catalogo</a>
+            <a href="index.php">Catalogo</a>
         </div>
         <div class="nav-item">
-            <a href="index.html">Registrate</a>
+            <a href="index.php">Registrate</a>
         </div>
         <div class="nav-item">
-            <a href="index.html">Informacion</a>
+            <a href="index.php">Informacion</a>
         </div>
     </nav>
 
-    
+
     <main>
         <div class="container">
-            <input type="text" id="search" placeholder="Busca un personaje...">
+            <form action="">
+                <div class="busqueda">
+                    <input type="text" id="search" placeholder="Busca un personaje...">
+                    <select name="tematica" id="tematica">
+
+                    </select>
+                    <div class="fav">
+                        <input type="checkbox" name="favoritos">
+                        <h3>Mis Favoritos</h3>
+                    </div>
+                    <button type="submit">Buscar</button>
+                </div>
+
+            </form>
         </div>
         <div class="image-gallery" id="miGaleria">
             <!-- Aquí se insertarán las imágenes con descripciones -->
-            <?php 
+            <?php
             require "./API/clases/Personaje.php";
-            $a=new Personaje();
-            $result=$a->leer();
-            while($person=$result->fetch_assoc()){
+            $a = new Personaje();
+            $result = $a->leer();
+            while ($person = $result->fetch_assoc()) {
                 extract($person);
 
-                $datos=[
-                    "id"=> $id,
-                    "nombre"=> $nombre,
-                    "img"=> $img,
-                    "descripcion"=> $descripcion
+                $datos = [
+                    "id" => $id,
+                    "nombre" => $nombre,
+                    "img" => $img,
+                    "descripcion" => $descripcion
                 ];
 
-                $lista=json_encode($datos);
+                $lista = json_encode($datos);
                 echo "<div class='image-item' onclick='mostrarDescripcion($id,$lista)'>";
                 echo "<img src='$img' alt='Descripción imagen'>";
-                echo "<h3 style='color:white'>".$nombre."</h3>";
+                echo "<h3 style='color:white'>" . $nombre . "</h3>";
                 echo "<div class='description'>";
-                echo    "<p>Ver descripcion</p>";
+                echo "<p>Ver descripcion</p>";
                 echo "</div>";
                 echo "</div>";
             }
             ?>
-            
-            
+
+
+        </div>
+        <div class="pagination">
+            <button id="prevPage">⏪Anterior</button>
+            <span id="currentPage">1</span>
+            <button id="nextPage">Siguiente⏩</button>
         </div>
     </main>
     <div id="cart">
         <div id="cart-item"></div>
     </div>
-    
+
     <script src="js/script.js"></script>
-    
+
 </body>
 
 </html>
