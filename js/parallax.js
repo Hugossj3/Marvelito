@@ -47,8 +47,10 @@ function validarCorreo(){
     let posibleCorreo=document.getElementById("email").value;
     const eCorreo=document.getElementById("correoError");
     
-    let eRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!eRegex.test(posibleCorreo.trim())){
+
+
+    let eRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!eRegex.test(posibleCorreo)){
         correcto=false;
         eCorreo.textContent="El formato de correo que ha ingresado es incorrecto";
     }else{
@@ -78,15 +80,7 @@ function validarEdad(){
 }
 
 function guardarUsuario(){
-    contra=document.getElementById("personaje").value;
-    let miUsuario=[{
-        nombre:datoNombre,
-        edad:datoEdad,
-        correo:datoCorreo,
-        personajeFavorito:contra
-    }];
-    console.log(miUsuario[0]);
-    localStorage.setItem("usu",JSON.stringify(miUsuario));
+    
 }
 
 document.getElementById("nombre").addEventListener("input",validarNombre);
@@ -94,8 +88,14 @@ document.getElementById("email").addEventListener("input",validarCorreo);
 document.getElementById("edad").addEventListener("input",validarEdad);
 
 function envioDatos(){
+    
     if(validarNombre() && validarCorreo() && validarEdad()){
+        // document.getElementById("confi").innerHTML=`
+        //             Hola Manolo
+        //              <button onclick="cerrarSesion()">Cerrar Sesion</button>`
         
+    }else{
+        alert("Los datos no son los correctos")
     }
     
 }

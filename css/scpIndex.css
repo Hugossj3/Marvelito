@@ -153,7 +153,12 @@ form button:hover {
 #registrado,#formu-registro{
     display: none;
 }
-
+#confi{
+    color: white;
+    display: flex;
+    margin: 10px;
+    justify-content: end;
+}
 
 footer{
     background-color: #222;

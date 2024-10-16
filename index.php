@@ -72,15 +72,14 @@
     <section class="normal">
         <div class="container" id="registrado"></div>
         <div class="container" id="acceso">
-            <form>
+            <form method="POST" action="includes/login.php">
                 <div>
                     <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email">
-                    <div class="error" id="correoError"></div>
+                    <input type="email" id="log-email" name="log-email">
                 </div>
                 <div>
                     <label for="personaje">Contraseña:</label>
-                    <input type="password" id="contra" name="contra">
+                    <input type="password" id="log-contra" name="log-contra">
                 </div>
                 <div>
                     <button type="submit">Iniciar Sesion</button>
