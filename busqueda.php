@@ -49,7 +49,7 @@
         <div class="image-gallery" id="miGaleria">
             <!-- Aquí se insertarán las imágenes con descripciones -->
             <?php
-            require "./API/clases/Personaje.php";
+            require "./conect/clases/Personaje.php";
             $a = new Personaje();
             $result = $a->leer();
             while ($person = $result->fetch_assoc()) {

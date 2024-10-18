@@ -9,12 +9,11 @@ class Usuario{
         $this->conn =dameConexion();
     }
     public function leer($usu,$pass){
-        $clave=md5($pass);
         
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla." WHERE correo=? && contra=?");
 		
 
-        $stmt->bind_param("ss",$usu,$clave);
+        $stmt->bind_param("ss",$usu,$pass);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		return $result;

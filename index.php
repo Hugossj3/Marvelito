@@ -1,3 +1,13 @@
+<?php
+    require "includes/login.php";
+    if(isset($_SESSION["id_log"]) && $_SESSION["nombre"]){
+        $id=$_SESSION["id_log"];
+        $nombre=$_SESSION["nombre"];
+    }
+    
+    $log=login_hecho();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,6 +20,8 @@
 </head>
 
 <body>
+    <input type="hidden" id="iniciado" value="<?php echo $log;?>">
+    <input type="hidden" id="nUsu" value="<?php echo $nombre;?>">
     <header>
         <h1>Mundo Friki</h1>
         <span id="confi"></span>
@@ -69,8 +81,10 @@
         </div>
     </section>
 
-    <section class="normal">
-        <div class="container" id="registrado"></div>
+    <section class="normal" id="seccion-registro">
+        <div class="container" id="registrado">
+            <h2>Ya puedes acceder a nuestro catalogo Bienvenido</h2>
+        </div>
         <div class="container" id="acceso">
             <form method="POST" action="includes/login.php">
                 <div>
@@ -90,7 +104,7 @@
             </form>
         </div>
         <div class="container" id="formu-registro">
-            <h3 id="seccion-registro">Formulario de Datos Personales</h3>
+            <h3>Formulario de Datos Personales</h3>
             <form id="envioDatos">
                 <div>
                     <label for="nombre">Nombre:</label>
@@ -98,14 +112,14 @@
                     <div class="error" id="nombreError"></div>
                 </div>
                 <div>
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email">
-                    <div class="error" id="correoError"></div>
-                </div>
-                <div>
                     <label for="edad">Edad:</label>
                     <input type="number" id="edad" name="edad">
                     <div class="error" id="edadError"></div>
+                </div>
+                <div>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email">
+                    <div class="error" id="correoError"></div>
                 </div>
                 <div>
                     <label for="personaje">Contraseña:</label>
@@ -113,6 +127,7 @@
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
+                    <button>Cancelar</button>
                 </div>
             </form>
         </div>

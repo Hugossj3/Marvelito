@@ -1,6 +1,7 @@
 const registro=document.getElementById("formu-registro");
 const acceso=document.getElementById("acceso");
 const dentro=document.getElementById("registrado");
+let iniciado=document.getElementById("iniciado").value;
 // Efecto Parallax en JavaScript
 window.addEventListener('scroll', function() {
     const parallaxElements = document.querySelectorAll('.parallax');
@@ -16,6 +17,7 @@ function abrirRegistro(){
     acceso.style.display="none";
     dentro.style.display="none";
 }
+console.log(iniciado)
 
 let datoNombre;
 let datoCorreo;
@@ -90,9 +92,8 @@ document.getElementById("edad").addEventListener("input",validarEdad);
 function envioDatos(){
     
     if(validarNombre() && validarCorreo() && validarEdad()){
-        // document.getElementById("confi").innerHTML=`
-        //             Hola Manolo
-        //              <button onclick="cerrarSesion()">Cerrar Sesion</button>`
+        
+        
         
     }else{
         alert("Los datos no son los correctos")
@@ -108,8 +109,7 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 
 function abrirCatalogo(){
-    window.location.href="busqueda.php";
-    if(localStorage.getItem("registrado")){
+    if(iniciado==1){
         window.location.href="busqueda.php";
     }else{
         const noRegistro=document.getElementById("sinRegistro");
@@ -117,19 +117,23 @@ function abrirCatalogo(){
     }
     
 }
-// function cargarSesion(){
-//     if(localStorage.getItem("registrado")){
-//         document.getElementById("confi").innerHTML=`
-//             Hola ${localStorage.getItem(usu)[0].nombre}
-//             <button onclick="cerrarSesion()">Cerrar Sesion</button>
-//         `;
-//     }else{
-//         document.getElementById("confi").innerHTML=``;
-//     }
-// }
-// function cerrarSesion(){
-//     localStorage.setItem("registrado",false)
-// }
+
+if(iniciado==1){
+    registro.style.display="none";
+    acceso.style.display="none";
+    dentro.style.display="block";
+    document.getElementById("confi").innerHTML=`
+                    Hola Manolo
+                     <button onclick="cerrarSesion()">Cerrar Sesion</button>`
+}
+function cargarSesion(usu,pass){
+
+}
+
+function cerrarSesion(){
+    window.location.href="includes/logout.php";
+}
+
 
 
 
