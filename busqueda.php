@@ -35,7 +35,16 @@
                 <div class="busqueda">
                     <input type="text" id="search" placeholder="Busca un personaje...">
                     <select name="tematica" id="tematica">
-
+                        <option value=""></option>
+                        <?php
+                        require "./conect/clases/Personaje.php";
+                        $a = new Personaje();
+                        $result = $a->leerTipos();
+                        while ($person = $result->fetch_assoc()) {
+                            // extract($person);
+                            echo "<option value='".$person["tipoP"]."'>".$person["tipoP"]."</option> "; 
+                        }
+                        ?> 
                     </select>
                     <div class="fav">
                         <input type="checkbox" name="favoritos">
@@ -49,8 +58,6 @@
         <div class="image-gallery" id="miGaleria">
             <!-- Aquí se insertarán las imágenes con descripciones -->
             <?php
-            require "./conect/clases/Personaje.php";
-            $a = new Personaje();
             $result = $a->leer();
             while ($person = $result->fetch_assoc()) {
                 extract($person);

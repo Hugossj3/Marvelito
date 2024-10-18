@@ -16,8 +16,7 @@ class Personaje{
 		return $result;
     }
     public function leerTipos(){
-        //cambiar el query
-        $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla);
+        $stmt = $this->conn->prepare("SELECT DISTINCT tipoP FROM " . $this->tabla);
 		
 		$stmt->execute();
 		$result = $stmt->get_result();
