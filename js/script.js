@@ -1,4 +1,6 @@
 
+
+
 const tarjetita=document.getElementById("cart");
 const contentDesc=document.getElementById("cart-item");
 

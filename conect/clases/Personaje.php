@@ -15,5 +15,12 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
-
+    public function leerTipos(){
+        //cambiar el query
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla);
+		
+		$stmt->execute();
+		$result = $stmt->get_result();
+		return $result;
+    }
 }
