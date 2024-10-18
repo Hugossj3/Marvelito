@@ -2,6 +2,7 @@ const registro=document.getElementById("formu-registro");
 const acceso=document.getElementById("acceso");
 const dentro=document.getElementById("registrado");
 let iniciado=document.getElementById("iniciado").value;
+let nombreUsu=document.getElementById("nUsu").value; 
 // Efecto Parallax en JavaScript
 window.addEventListener('scroll', function() {
     const parallaxElements = document.querySelectorAll('.parallax');
@@ -11,6 +12,13 @@ window.addEventListener('scroll', function() {
     });
 });
 
+
+function volver(){
+    event.preventDefault();
+    registro.style.display="none";
+    acceso.style.display="block";
+    dentro.style.display="none";
+}
 function abrirRegistro(){
     event.preventDefault();
     registro.style.display="block";
@@ -92,7 +100,7 @@ document.getElementById("edad").addEventListener("input",validarEdad);
 function envioDatos(){
     
     if(validarNombre() && validarCorreo() && validarEdad()){
-        
+        //necesitas hacer un fetch para crear un nuevo usario que use el insert que has creado anteriormente
         
         
     }else{
@@ -123,7 +131,7 @@ if(iniciado==1){
     acceso.style.display="none";
     dentro.style.display="block";
     document.getElementById("confi").innerHTML=`
-                    Hola Manolo
+                    Hola ${nombreUsu}
                      <button onclick="cerrarSesion()">Cerrar Sesion</button>`
 }
 function cargarSesion(usu,pass){

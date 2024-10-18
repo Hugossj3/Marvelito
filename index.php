@@ -127,7 +127,7 @@
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
-                    <button>Cancelar</button>
+                    <button onclick="volver()">Cancelar</button>
                 </div>
             </form>
         </div>
