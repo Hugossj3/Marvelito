@@ -13,7 +13,6 @@ $result=$usuario->insertar($nombre,$edad,$correo,$contra);
 
 if($result){
     echo json_encode(['success' => true]);
-    hacerLogin($correo,$contra);
 }else{
     echo json_encode(['success' => false, 'message' => 'El usuario no se pudo crear']);
 
