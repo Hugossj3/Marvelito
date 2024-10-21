@@ -24,7 +24,7 @@ class Usuario{
 
         $stmt = $this->conn->prepare("INSERT INTO ".$this->tabla."(nombre, edad, correo, contra) VALUES (?,?,?,?)");
 
-        $stmt->bind_param("siss",$nombre,$edad,$usu,$clave);
+        $stmt->bind_param("siss",$nombre,$edad,$correo,$clave);
 		if($stmt->execute()){
             return true;
         }

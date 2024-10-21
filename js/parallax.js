@@ -102,7 +102,21 @@ function envioDatos(){
     if(validarNombre() && validarCorreo() && validarEdad()){
         //necesitas hacer un fetch para crear un nuevo usario que use el insert que has creado anteriormente
         
-        
+        fetch("includes/newUser.php",{
+            method:"POST",
+            headers:{
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body:`nombre=${encodeURIComponent(datoNombre)}&edad=${encodeURIComponent(datoEdad)}&email=${encodeURIComponent(datoCorreo)}&contra=${encodeURIComponent(contra)}`
+        })
+        .then(response=>response.json())
+        .then(data=>{
+            if(data.success){
+                alert("Usuario Creado con exito")
+            }else{
+                alert("error "+data.message)
+            }
+        })
     }else{
         alert("Los datos no son los correctos")
     }
@@ -134,9 +148,7 @@ if(iniciado==1){
                     Hola ${nombreUsu}
                      <button onclick="cerrarSesion()">Cerrar Sesion</button>`
 }
-function cargarSesion(usu,pass){
 
-}
 
 function cerrarSesion(){
     window.location.href="includes/logout.php";

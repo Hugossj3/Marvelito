@@ -1,6 +1,6 @@
 <?php
     require "includes/login.php";
-    if(isset($_SESSION["id_log"]) && $_SESSION["nombre"]){
+    if(isset($_SESSION["id_log"]) && isset($_SESSION["nombre"])){
         $id=$_SESSION["id_log"];
         $nombre=$_SESSION["nombre"];
     }

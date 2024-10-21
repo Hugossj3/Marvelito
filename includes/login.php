@@ -9,6 +9,7 @@ if (isset($_POST["log-email"]) && isset($_POST["log-contra"])) {
     $tryEmail = $_POST["log-email"];
     $tryContra = md5($_POST["log-contra"]);
 
+
     $usuario = new Usuario();
 
     $result = $usuario->leer($tryEmail, $tryContra);
