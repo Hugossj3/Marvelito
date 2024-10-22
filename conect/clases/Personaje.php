@@ -15,6 +15,19 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    public function buscador($nombre,$tipo){
+        
+        if($nombre==null){
+            $nombre=".";
+        }
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla." WHERE tipoP=? && nombre LIKE '%".$nombre."%'");
+        $stmt->bind_param("s",$tipo);
+        
+
+        $stmt->execute();
+		$result = $stmt->get_result();
+		return $result;
+    }
     public function leerTipos(){
         $stmt = $this->conn->prepare("SELECT DISTINCT tipoP FROM " . $this->tabla);
 		

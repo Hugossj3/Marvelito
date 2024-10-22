@@ -97,6 +97,11 @@
                 </div>
                 <div>
                     <button type="submit">Iniciar Sesion</button>
+                    <?php
+                    if(isset($_SESSION["msg-error"])){
+                        echo "<div class='error'>".$_SESSION["msg-error"]."</div>";
+                    }
+                    ?>
                 </div>
                 <div>
                     <button onclick="abrirRegistro()">Registrarse</button>
@@ -127,7 +132,7 @@
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
-                    <button onclick="volver()">Cancelar</button>
+                    <button onclick="volver()">Volver</button>
                 </div>
             </form>
         </div>

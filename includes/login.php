@@ -23,11 +23,11 @@ if (isset($_POST["log-email"]) && isset($_POST["log-contra"])) {
         echo $_SESSION["nombre"] . "<br/>";
         echo $_SESSION["edad"] . "<br/>";
 
-        header("location:../index.php");
+        
     } else {
         $_SESSION["msg-error"] = "No se ha podido iniciar sesion";
     }
-
+    header("location:../index.php");
 }
 
 

@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -34,11 +31,11 @@
 
     <main>
         <div class="container">
-            <form action="">
+            <form action="includes/buscador.php" method="GET">
                 <div class="busqueda">
-                    <input type="text" id="search" placeholder="Busca un personaje...">
+                    <input type="text" name="nombre" id="search" placeholder="Busca un personaje...">
                     <select name="tematica" id="tematica">
-                        <option value=""></option>
+                        <option value="no"></option>
                         <?php
                         require "./conect/clases/Personaje.php";
                         $a = new Personaje();
@@ -55,13 +52,20 @@
                     </div>
                     <button type="submit">Buscar</button>
                 </div>
-
             </form>
+
         </div>
         <div class="image-gallery" id="miGaleria">
             <!-- Aquí se insertarán las imágenes con descripciones -->
             <?php
-            $result = $a->leer();
+            require "includes/buscador.php";
+            $result;
+            if(isset($_SESSION["consulta-buscador"]) && $_SESSION["consulta-buscador"]){
+                $result=realizarBusquedad($a);
+            }else{
+                $result = $a->leer();
+            }
+            
             while ($person = $result->fetch_assoc()) {
                 extract($person);
 
@@ -81,6 +85,7 @@
                 echo "</div>";
                 echo "</div>";
             }
+            unset($_SESSION["consulta-buscador"]);
             ?>
 
 

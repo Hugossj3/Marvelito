@@ -18,13 +18,19 @@ class Usuario{
 		$result = $stmt->get_result();
 		return $result;
     }
-
+    public function leerPorEmail($email) {
+        $query = "SELECT * FROM ".$this->tabla." WHERE email = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+    
     public function insertar($nombre,$edad,$correo,$contra){
-        $clave=md5($contra);
 
         $stmt = $this->conn->prepare("INSERT INTO ".$this->tabla."(nombre, edad, correo, contra) VALUES (?,?,?,?)");
 
-        $stmt->bind_param("siss",$nombre,$edad,$correo,$clave);
+        $stmt->bind_param("siss",$nombre,$edad,$correo,$contra);
 		if($stmt->execute()){
             return true;
         }

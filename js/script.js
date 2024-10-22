@@ -7,6 +7,7 @@ const contentDesc=document.getElementById("cart-item");
 const itemsPerPage = 12;
 let currentPage = 1;
 
+const galeria=document.getElementById("miGaleria");
 const imageItems = document.querySelectorAll('.image-item');
 const totalPages = Math.ceil(imageItems.length / itemsPerPage);
 

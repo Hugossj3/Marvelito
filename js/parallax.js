@@ -89,9 +89,7 @@ function validarEdad(){
     return correcto;
 }
 
-function guardarUsuario(){
-    
-}
+
 
 document.getElementById("nombre").addEventListener("input",validarNombre);
 document.getElementById("email").addEventListener("input",validarCorreo);
@@ -102,21 +100,16 @@ function envioDatos(){
     if(validarNombre() && validarCorreo() && validarEdad()){
         //necesitas hacer un fetch para crear un nuevo usario que use el insert que has creado anteriormente
         
-        fetch("includes/newUser.php",{
-            method:"POST",
-            headers:{
+        fetch("includes/newUser.php", {
+            method: "POST",
+            headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body:`nombre=${encodeURIComponent(datoNombre)}&edad=${encodeURIComponent(datoEdad)}&email=${encodeURIComponent(datoCorreo)}&contra=${encodeURIComponent(contra)}`
+            body: `nombre=${encodeURIComponent(datoNombre)}&edad=${encodeURIComponent(datoEdad)}&email=${encodeURIComponent(datoCorreo)}&contra=${contra}`
         })
-        .then(response=>response.json())
-        .then(data=>{
-            if(data.success){
-                alert("Usuario Creado con exito")
-            }else{
-                alert("error "+data.message)
-            }
-        })
+        .then(
+            location.reload()
+        )
     }else{
         alert("Los datos no son los correctos")
     }
@@ -125,6 +118,7 @@ function envioDatos(){
 
 document.getElementById("envioDatos").addEventListener("submit",function (event){
     event.preventDefault();
+    contra=document.getElementById("contra").value;
     console.log("se envia");
     envioDatos();
 });
