@@ -17,11 +17,14 @@ class Personaje{
     }
     public function buscador($nombre,$tipo){
         
-        if($nombre==null){
-            $nombre=".";
+        
+        if($tipo!="no"){
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla." WHERE tipoP=? && nombre LIKE '".$nombre."%'");
+            $stmt->bind_param("s",$tipo);
+        }else{
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla." WHERE nombre LIKE '".$nombre."%'");
         }
-        $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla." WHERE tipoP=? && nombre LIKE '%".$nombre."%'");
-        $stmt->bind_param("s",$tipo);
+        
         
 
         $stmt->execute();

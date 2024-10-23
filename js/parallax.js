@@ -126,7 +126,7 @@ document.getElementById("envioDatos").addEventListener("submit",function (event)
 
 function abrirCatalogo(){
     if(iniciado==1){
-        window.location.href="busqueda.php";
+        window.location.href="./busqueda.php";
     }else{
         const noRegistro=document.getElementById("sinRegistro");
         noRegistro.innerHTML="Necesitas Registrarte para acceder al catalogo";

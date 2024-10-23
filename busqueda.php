@@ -62,29 +62,37 @@
             $result;
             if(isset($_SESSION["consulta-buscador"]) && $_SESSION["consulta-buscador"]){
                 $result=realizarBusquedad($a);
+                unset($_SESSION["bnombre"]);
+                unset($_SESSION["btematica"]);
             }else{
                 $result = $a->leer();
             }
-            
-            while ($person = $result->fetch_assoc()) {
-                extract($person);
+            unset($_SESSION["consulta-buscador"]);
 
-                $datos = [
-                    "id" => $id,
-                    "nombre" => $nombre,
-                    "img" => $img,
-                    "descripcion" => $descripcion
-                ];
-
-                $lista = json_encode($datos);
-                echo "<div class='image-item' onclick='mostrarDescripcion($id,$lista)'>";
-                echo "<img src='$img' alt='Descripción imagen'>";
-                echo "<h3 style='color:white'>" . $nombre . "</h3>";
-                echo "<div class='description'>";
-                echo "<p>Ver descripcion</p>";
-                echo "</div>";
-                echo "</div>";
+            if($result->num_rows<1){
+                echo "<h2 style='color:black'>No se encontraron Personajes</h2>";
+            }else{
+                while ($person = $result->fetch_assoc()) {
+                    extract($person);
+    
+                    $datos = [
+                        "id" => $id,
+                        "nombre" => $nombre,
+                        "img" => $img,
+                        "descripcion" => $descripcion
+                    ];
+    
+                    $lista = json_encode($datos);
+                    echo "<div class='image-item' onclick='mostrarDescripcion($id,$lista)'>";
+                    echo "<img src='$img' alt='Descripción imagen'>";
+                    echo "<h3 style='color:white'>" . $nombre . "</h3>";
+                    echo "<div class='description'>";
+                    echo "<p>Ver descripcion</p>";
+                    echo "</div>";
+                    echo "</div>";
+                }
             }
+            
             unset($_SESSION["consulta-buscador"]);
             ?>
 
