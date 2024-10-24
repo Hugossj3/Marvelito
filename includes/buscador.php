@@ -7,6 +7,7 @@ if (isset($_GET["nombre"]) || isset($_GET["tematica"])) {
     $_SESSION["consulta-buscador"] = true;
     $_SESSION["bnombre"] = $_GET["nombre"];
     $_SESSION["btematica"] = $_GET["tematica"];
+    $_SESSION["bfav"]=$_GET["favoritos"];
     header("location:../busqueda.php");
     exit;
 }
