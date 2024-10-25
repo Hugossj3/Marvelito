@@ -62,8 +62,6 @@
             $result;
             if(isset($_SESSION["consulta-buscador"]) && $_SESSION["consulta-buscador"]){
                 $result=realizarBusquedad($a);
-                unset($_SESSION["bnombre"]);
-                unset($_SESSION["btematica"]);
             }else{
                 $result = $a->leer();
             }
@@ -92,7 +90,8 @@
                     echo "</div>";
                 }
             }
-            
+            unset($_SESSION["bnombre"]);
+            unset($_SESSION["btematica"]);
             unset($_SESSION["consulta-buscador"]);
             ?>
 

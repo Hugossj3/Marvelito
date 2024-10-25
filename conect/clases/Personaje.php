@@ -15,19 +15,18 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
-    public function buscador($nombre,$tipo/*,$isFav,$idUsuario*/){
-        $x=$this->tabla;
-        /*if($isFav){
-            $x="(SELECT * FROM ".$this->tabla." WHERE id=(SELECT id_personaje FROM fav WHERE id_usuario=".$idUsuario."))";
-        }*/
-        if($tipo!="no"){
-            $stmt = $this->conn->prepare("SELECT * FROM " .$x." WHERE tipoP=? && nombre LIKE '".$nombre."%'");
-            $stmt->bind_param("s",$tipo);
-        }else{
-            $stmt = $this->conn->prepare("SELECT * FROM " .$x." WHERE nombre LIKE '".$nombre."%'");
+    public function buscador($nombre,$tipo,$isFav,$idUsuario){
+        $query="SELECT * FROM " . $this->tabla." WHERE 1=1 ";
+        if(isset($nombre)){
+            $query.="&& nombre LIKE '".$nombre."%' ";
         }
-        
-        
+        if($isFav=="on"){
+            $query.="&& id IN(SELECT id_personaje FROM favs WHERE id_usuario=".$idUsuario.") ";
+        }
+        if($tipo!="no"){
+            $query.="&& tipoP='".$tipo."' ";
+        }
+        $stmt=$this->conn->prepare($query);
 
         $stmt->execute();
 		$result = $stmt->get_result();
