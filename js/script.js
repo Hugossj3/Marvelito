@@ -49,13 +49,18 @@ document.getElementById('nextPage').addEventListener('click', () => {
 showPage(currentPage);
 
 //tarjetitas
-function mostrarDescripcion(id,datos){
+function mostrarDescripcion(id,datos,userId){
     tarjetita.classList.toggle("open");
     contentDesc.innerHTML=`
         <h2>${datos.nombre}</h2>
         
         <img src="${datos.img}" alt="Descripción imagen seleccionada">
         <div class="info">${datos.descripcion}</div>
+        <form method="GET" action="includes/favManager.php">
+            <input type="hidden" name="id" value="${id}">
+            <input type="hidden" name="userId" value="${userId}">
+            <button class="star-button" type="submit" title="Añadir o quitar de favoritos">★</button>
+        </form>
     `;
 }
 

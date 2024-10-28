@@ -81,7 +81,7 @@
                     ];
     
                     $lista = json_encode($datos);
-                    echo "<div class='image-item' onclick='mostrarDescripcion($id,$lista)'>";
+                    echo "<div class='image-item' onclick='mostrarDescripcion($id,$lista,".$_SESSION["id_log"].")'>";
                     echo "<img src='$img' alt='Descripción imagen'>";
                     echo "<h3 style='color:white'>" . $nombre . "</h3>";
                     echo "<div class='description'>";
@@ -94,8 +94,7 @@
             unset($_SESSION["btematica"]);
             unset($_SESSION["consulta-buscador"]);
             ?>
-
-
+            
         </div>
         <div class="pagination">
             <button id="prevPage">⏪Anterior</button>

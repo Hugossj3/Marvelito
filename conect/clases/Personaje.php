@@ -15,6 +15,7 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    
     public function buscador($nombre,$tipo,$isFav,$idUsuario){
         $query="SELECT * FROM " . $this->tabla." WHERE 1=1 ";
         if(isset($nombre)){
@@ -48,11 +49,32 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    public function isFav($p,$user) {
+        $query="SELECT * FROM favs WHERE id_personaje=$p && id_usuario=$user";
+        $stmt=$this->conn->prepare($query);
+        $stmt->execute();
+        if($stmt->get_result()->num_rows==1){
+            return true;
+        }else{
+            return false;
+        } 
+    }
+    public function addFavoritos($p,$user){
+        $stmt=$this->conn->prepare(
+            "INSERT INTO favs(id_personaje, id_usuario) VALUES (?,?)"
+        );
+        $stmt->bind_param("ii",$p,$user);
+        if($stmt->execute()){
+            return true;
+        }
+        return false;
+
+    }
     public function quitarFavoritos($idPersonaje,$idUsuario){
         $stmt=$this->conn->prepare(
-            "DELETE FROM fav WHERE id_personaje=? && id_usuario=?"
+            "DELETE FROM favs WHERE id_personaje=? && id_usuario=?"
         );
-        $stmt->bind_param("i",$idUsuario);
+        $stmt->bind_param("ii",$idPersonaje,$idUsuario);
         if($stmt->execute()){
             return true;
         }
