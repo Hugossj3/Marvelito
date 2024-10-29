@@ -142,7 +142,7 @@
         <h2>Necesitas Saber</h2>
         <div class="grid-foot">
             <div class="foot-item">
-                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Todos los derechos reservados para el creador.
+                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Esta pagina fue creada como proyecto y gusto al mundo friki, los debidos derechos de imagen se respetaran para Marvel, Toho y aquellas empresas cuyos personajes se vean presentados en la web. En apoyo al software libre, se podra copiar el diseño o funciones de la página pero nunca para convertirlo en software privativo.
                 </p>
             </div>
             <div class="foot-item">

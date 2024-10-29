@@ -168,7 +168,7 @@ footer{
 }
 .grid-foot{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1.5fr 1fr;
 }
 .foot-item:nth-of-type(2){
     display: flex;
