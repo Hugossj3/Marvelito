@@ -1,11 +1,11 @@
 <?php
-    require "includes/login.php";
-    if(isset($_SESSION["id_log"]) && isset($_SESSION["nombre"])){
-        $id=$_SESSION["id_log"];
-        $nombre=$_SESSION["nombre"];
-    }
-    
-    $log=login_hecho();
+require "includes/login.php";
+if (isset($_SESSION["id_log"]) && isset($_SESSION["nombre"])) {
+    $id = $_SESSION["id_log"];
+    $nombre = $_SESSION["nombre"];
+}
+
+$log = login_hecho();
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +20,8 @@
 </head>
 
 <body>
-    <input type="hidden" id="iniciado" value="<?php echo $log;?>">
-    <input type="hidden" id="nUsu" value="<?php echo $nombre;?>">
+    <input type="hidden" id="iniciado" value="<?php echo $log; ?>">
+    <input type="hidden" id="nUsu" value="<?php echo $nombre; ?>">
     <header>
         <h1>Mundo Friki</h1>
         <span id="confi"></span>
@@ -98,8 +98,8 @@
                 <div>
                     <button type="submit">Iniciar Sesion</button>
                     <?php
-                    if(isset($_SESSION["msg-error"])){
-                        echo "<div class='error'>".$_SESSION["msg-error"]."</div>";
+                    if (isset($_SESSION["msg-error"])) {
+                        echo "<div class='error'>" . $_SESSION["msg-error"] . "</div>";
                     }
                     ?>
                 </div>
@@ -129,6 +129,7 @@
                 <div>
                     <label for="personaje">Contraseña:</label>
                     <input type="password" id="contra" name="contra">
+                    <div class="error" id="contraError"></div>
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
@@ -137,12 +138,24 @@
             </form>
         </div>
     </section>
+
+    <div class="inf" id="infor">
+        <?php
+        if (isset($_SESSION["infMsg"])) {
+            echo "" . $_SESSION["infMsg"];
+            unset($_SESSION["infMsg"]);
+        }
+        ?>
+    </div>
     <hr>
     <footer>
         <h2>Necesitas Saber</h2>
         <div class="grid-foot">
             <div class="foot-item">
-                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Esta pagina fue creada como proyecto y gusto al mundo friki, los debidos derechos de imagen se respetaran para Marvel, Toho y aquellas empresas cuyos personajes se vean presentados en la web. En apoyo al software libre, se podra copiar el diseño o funciones de la página pero nunca para convertirlo en software privativo.
+                <p id="seccion-informacion">© 2024 Enciclopedia Friki. Esta pagina fue creada como proyecto y gusto al
+                    mundo friki, los debidos derechos de imagen se respetaran para Marvel, Toho y aquellas empresas
+                    cuyos personajes se vean presentados en la web. En apoyo al software libre, se podra copiar el
+                    diseño o funciones de la página pero nunca para convertirlo en software privativo.
                 </p>
             </div>
             <div class="foot-item">

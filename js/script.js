@@ -48,6 +48,15 @@ document.getElementById('nextPage').addEventListener('click', () => {
 
 showPage(currentPage);
 
+
+  let info = document.getElementById("infor")
+  if (info) {
+      info.style.display = "block"
+      setTimeout(() => {
+          info.style.display = "none"
+      }, 3000);
+  }
+
 //tarjetitas
 function mostrarDescripcion(id,datos,userId){
     tarjetita.classList.toggle("open");

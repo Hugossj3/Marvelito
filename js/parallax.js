@@ -1,29 +1,38 @@
-const registro=document.getElementById("formu-registro");
-const acceso=document.getElementById("acceso");
-const dentro=document.getElementById("registrado");
-let iniciado=document.getElementById("iniciado").value;
-let nombreUsu=document.getElementById("nUsu").value; 
+const registro = document.getElementById("formu-registro");
+const acceso = document.getElementById("acceso");
+const dentro = document.getElementById("registrado");
+let iniciado = document.getElementById("iniciado").value;
+let nombreUsu = document.getElementById("nUsu").value;
 // Efecto Parallax en JavaScript
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const parallaxElements = document.querySelectorAll('.parallax');
-    parallaxElements.forEach(function(element) {
+    parallaxElements.forEach(function (element) {
         let scrollPosition = window.screenY;
         element.style.backgroundPositionY = -(scrollPosition * 0.5) + 'px';
     });
 });
 
 
-function volver(){
+    let info = document.getElementById("infor")
+    if (info) {
+        info.style.display = "block"
+        setTimeout(() => {
+            info.style.display = "none"
+        }, 3000);
+    }
+
+
+function volver() {
     event.preventDefault();
-    registro.style.display="none";
-    acceso.style.display="block";
-    dentro.style.display="none";
+    registro.style.display = "none";
+    acceso.style.display = "block";
+    dentro.style.display = "none";
 }
-function abrirRegistro(){
+function abrirRegistro() {
     event.preventDefault();
-    registro.style.display="block";
-    acceso.style.display="none";
-    dentro.style.display="none";
+    registro.style.display = "block";
+    acceso.style.display = "none";
+    dentro.style.display = "none";
 }
 console.log(iniciado)
 
@@ -31,75 +40,91 @@ let datoNombre;
 let datoCorreo;
 let datoEdad;
 let contra;
-let usuarioGuardado=false;
+let usuarioGuardado = false;
 
 
-let posiblePersonaje="";
+let posiblePersonaje = "";
 
-function validarNombre(){
-    let correcto=true;
-    let posibleNombre=document.getElementById("nombre").value;
-    const eNombre=document.getElementById("nombreError");
-    
-    if(posibleNombre.trim().length<3){
-        correcto=false;
-        eNombre.textContent="El nombre tiene que tener al menos 3 caracteres";
-    }else{
-        datoNombre=posibleNombre;
-        eNombre.textContent="";
-        correcto=true;
+function validarNombre() {
+    let correcto = true;
+    let posibleNombre = document.getElementById("nombre").value;
+    const eNombre = document.getElementById("nombreError");
+
+    if (posibleNombre.trim().length < 3) {
+        correcto = false;
+        eNombre.textContent = "El nombre tiene que tener al menos 3 caracteres";
+    } else {
+        datoNombre = posibleNombre;
+        eNombre.textContent = "";
+        correcto = true;
     }
     return correcto;
 }
 
-function validarCorreo(){
-    let correcto=true;
-    let posibleCorreo=document.getElementById("email").value;
-    const eCorreo=document.getElementById("correoError");
-    
+function validarCorreo() {
+    let correcto = true;
+    let posibleCorreo = document.getElementById("email").value;
+    const eCorreo = document.getElementById("correoError");
 
 
-    let eRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if(!eRegex.test(posibleCorreo)){
-        correcto=false;
-        eCorreo.textContent="El formato de correo que ha ingresado es incorrecto";
-    }else{
-        datoCorreo=posibleCorreo;
-        eCorreo.textContent="";
-        correcto=true;
+
+    let eRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!eRegex.test(posibleCorreo)) {
+        correcto = false;
+        eCorreo.textContent = "El formato de correo que ha ingresado es incorrecto";
+    } else {
+        datoCorreo = posibleCorreo;
+        eCorreo.textContent = "";
+        correcto = true;
     }
-    
+
     return correcto;
 }
 
-function validarEdad(){
+function validarEdad() {
+    let correcto = true;
+    let posibleEdad = document.getElementById("edad").value;
+    const eEdad = document.getElementById("edadError");
+
+    if (posibleEdad < 12 || posibleEdad > 120) {
+        correcto = false;
+        eEdad.textContent = "Tiene que ser mayor de 12 o no haber sobrebibido a la Pepa"
+    } else {
+        datoEdad = posibleEdad;
+        eEdad.textContent = "";
+        correcto = true;
+    }
+
+    return correcto;
+}
+
+function validarContra(){
     let correcto=true;
-    let posibleEdad=document.getElementById("edad").value;
-    const eEdad=document.getElementById("edadError");
-    
-    if(posibleEdad<12 || posibleEdad>120){
-        correcto=false;
-        eEdad.textContent="Tiene que ser mayor de 12 o no haber sobrebibido a la Pepa"
+    let posibleContra=document.getElementById("contra").value;
+    const eContra=document.getElementById("contraError");
+    if(posibleContra.length<3){
+        correcto=false; 
+        eContra.textContent="La contraseña tiene que ser mas larga"
     }else{
-        datoEdad=posibleEdad;
-        eEdad.textContent="";
+        contra=posibleContra
+        eContra.textContent="";
         correcto=true;
     }
-    
+
     return correcto;
 }
 
 
+document.getElementById("nombre").addEventListener("input", validarNombre);
+document.getElementById("email").addEventListener("input", validarCorreo);
+document.getElementById("edad").addEventListener("input", validarEdad);
+document.getElementById("contra").addEventListener("input",validarContra);
 
-document.getElementById("nombre").addEventListener("input",validarNombre);
-document.getElementById("email").addEventListener("input",validarCorreo);
-document.getElementById("edad").addEventListener("input",validarEdad);
+function envioDatos() {
 
-function envioDatos(){
-    
-    if(validarNombre() && validarCorreo() && validarEdad()){
+    if (validarNombre() && validarCorreo() && validarEdad() && validarContra()) {
         //necesitas hacer un fetch para crear un nuevo usario que use el insert que has creado anteriormente
-        
+
         fetch("includes/newUser.php", {
             method: "POST",
             headers: {
@@ -110,42 +135,41 @@ function envioDatos(){
         .then(
             location.reload()
         )
-    }else{
+    } else {
         alert("Los datos no son los correctos")
     }
-    
+
 }
 
-document.getElementById("envioDatos").addEventListener("submit",function (event){
+document.getElementById("envioDatos").addEventListener("submit", function (event) {
     event.preventDefault();
-    contra=document.getElementById("contra").value;
     console.log("se envia");
     envioDatos();
 });
 
 
-function abrirCatalogo(){
-    if(iniciado==1){
-        window.location.href="./busqueda.php";
-    }else{
-        const noRegistro=document.getElementById("sinRegistro");
-        noRegistro.innerHTML="Necesitas Registrarte para acceder al catalogo";
+function abrirCatalogo() {
+    if (iniciado == 1) {
+        window.location.href = "./busqueda.php";
+    } else {
+        const noRegistro = document.getElementById("sinRegistro");
+        noRegistro.innerHTML = "Necesitas Registrarte para acceder al catalogo";
     }
-    
+
 }
 
-if(iniciado==1){
-    registro.style.display="none";
-    acceso.style.display="none";
-    dentro.style.display="block";
-    document.getElementById("confi").innerHTML=`
+if (iniciado == 1) {
+    registro.style.display = "none";
+    acceso.style.display = "none";
+    dentro.style.display = "block";
+    document.getElementById("confi").innerHTML = `
                     Hola ${nombreUsu}
                      <button onclick="cerrarSesion()">Cerrar Sesion</button>`
 }
 
 
-function cerrarSesion(){
-    window.location.href="includes/logout.php";
+function cerrarSesion() {
+    window.location.href = "includes/logout.php";
 }
 
 

@@ -176,6 +176,17 @@ footer{
     text-align: center;
 }
 
+.inf{
+    display: none;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: bolder;
+    font-size: 20pt;
+    position: fixed;
+    bottom: 0;
+    padding: 30px 10%;
+}
 /* Estilos de la página de búsqueda */
 .image-gallery {
     width: 100%;
@@ -194,6 +205,7 @@ footer{
     background-color: #b71c1c;
     border-radius: 10px;
     margin: 20px;
+    cursor: pointer;
 }
 
 .image-item img {

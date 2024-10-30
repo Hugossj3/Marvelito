@@ -18,13 +18,6 @@ class Usuario{
 		$result = $stmt->get_result();
 		return $result;
     }
-    public function leerPorEmail($email) {
-        $query = "SELECT * FROM ".$this->tabla." WHERE email = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        return $stmt->get_result();
-    }
     
     public function insertar($nombre,$edad,$correo,$contra){
 
