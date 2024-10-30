@@ -42,7 +42,7 @@ class Personaje{
     }
     public function leerFavoritos($idUsuario){
         $stmt = $this->conn->prepare(
-            "SELECT * FROM ".$this->tabla." WHERE id=(SELECT id_personaje FROM fav WHERE id_usuario=".$idUsuario.")"
+            "SELECT * FROM ".$this->tabla." WHERE id=(SELECT id_personaje FROM fav WHERE id_usuario=?)"
         );
         $stmt->bind_param("i",$idUsuario);
         $stmt->execute();
@@ -50,8 +50,9 @@ class Personaje{
 		return $result;
     }
     public function isFav($p,$user) {
-        $query="SELECT * FROM favs WHERE id_personaje=$p && id_usuario=$user";
+        $query="SELECT * FROM favs WHERE id_personaje=? && id_usuario=?";
         $stmt=$this->conn->prepare($query);
+        $stmt->bind_param("ii",$p,$user);
         $stmt->execute();
         if($stmt->get_result()->num_rows==1){
             return true;
