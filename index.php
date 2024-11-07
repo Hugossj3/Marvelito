@@ -139,14 +139,16 @@ $log = login_hecho();
         </div>
     </section>
 
-    <div class="inf" id="infor">
+    
         <?php
         if (isset($_SESSION["infMsg"])) {
+            echo "<div class='inf' id='infor'>";
             echo "" . $_SESSION["infMsg"];
+            echo "</div>";
             unset($_SESSION["infMsg"]);
         }
         ?>
-    </div>
+    
     <hr>
     <footer>
         <h2>Necesitas Saber</h2>
