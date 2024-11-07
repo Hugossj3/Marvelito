@@ -97,9 +97,9 @@
 
         </div>
         <div class="pagination">
-            <button id="prevPage">⏪Anterior</button>
+            <button id="prevPage" class="pag-boton">⏪Anterior</button>
             <span id="currentPage">1</span>
-            <button id="nextPage">Siguiente⏩</button>
+            <button id="nextPage" class="pag-boton">Siguiente⏩</button>
         </div>
     </main>
 

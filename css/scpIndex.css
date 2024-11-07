@@ -263,7 +263,7 @@ img{
     height: 40px;
     text-align: center;
 }
-.pagination button{
+.pag-boton{
     width: 10%;
     border-radius: 10px;
 }
@@ -330,5 +330,8 @@ img{
     }
     .foot-item{
         grid-column: 1/-1;
+    }
+    .pag-boton{
+        width: 30%;
     }
 }
