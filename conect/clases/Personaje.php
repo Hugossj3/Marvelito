@@ -1,13 +1,16 @@
 <?php
 
 require_once __DIR__ . "/../conexion.php";
+#clase de php para recopilar los datos de los personajes en la base de datos
 class Personaje{
     private string $tabla="personaje";
     private $conn;
 
+    #pide la conexion
     public function __construct(){
         $this->conn =dameConexion();
     }
+    #hace una lectura general de los datos de los personajes
     public function leer(){
        $stmt = $this->conn->prepare("SELECT * FROM " . $this->tabla);
 		
@@ -15,6 +18,7 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    #lee los datos en funcion de los parametros que se le pasen
     
     public function buscador($nombre,$tipo,$isFav,$idUsuario){
         $query="SELECT * FROM " . $this->tabla." WHERE 1=1 ";
@@ -33,6 +37,7 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    #lee los distintos tipos de personaje
     public function leerTipos(){
         $stmt = $this->conn->prepare("SELECT DISTINCT tipoP FROM " . $this->tabla);
 		
@@ -40,6 +45,7 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    #lee los personajes favoritos del usuario que se le pase como parametro
     public function leerFavoritos($idUsuario){
         $stmt = $this->conn->prepare(
             "SELECT * FROM ".$this->tabla." WHERE id=(SELECT id_personaje FROM fav WHERE id_usuario=?)"
@@ -49,6 +55,7 @@ class Personaje{
 		$result = $stmt->get_result();
 		return $result;
     }
+    #devuelve true si el personaje que se pasa pertenece a los favoritos del usuario que se le pasa como parametro
     public function isFav($p,$user) {
         $query="SELECT * FROM favs WHERE id_personaje=? && id_usuario=?";
         $stmt=$this->conn->prepare($query);
@@ -60,6 +67,7 @@ class Personaje{
             return false;
         } 
     }
+    #añade el personaje que se pasa a la lista de favoritos del usuario pasado como parametro
     public function addFavoritos($p,$user){
         $stmt=$this->conn->prepare(
             "INSERT INTO favs(id_personaje, id_usuario) VALUES (?,?)"
@@ -71,6 +79,7 @@ class Personaje{
         return false;
 
     }
+    #quita el personaje que se pasa de la lista de favoritos del usuario pasado como parametro
     public function quitarFavoritos($idPersonaje,$idUsuario){
         $stmt=$this->conn->prepare(
             "DELETE FROM favs WHERE id_personaje=? && id_usuario=?"

@@ -4,6 +4,7 @@ session_start();
 
 require_once __DIR__ . "/../conect/clases/Usuario.php";
 
+#inicia sesion en funcion de las credensiales puestas por el usuario
 
 if (isset($_POST["log-email"]) && isset($_POST["log-contra"])) {
     $tryEmail = $_POST["log-email"];

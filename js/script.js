@@ -45,10 +45,10 @@ document.getElementById('nextPage').addEventListener('click', () => {
   }
 });
 
-
+//carga toda la función de paginacion de arriba
 showPage(currentPage);
 
-
+//muestra un mensaje de informacion al usuario
   let info = document.getElementById("infor")
   if (info) {
       info.style.display = "block"
@@ -57,7 +57,7 @@ showPage(currentPage);
       }, 3000);
   }
 
-//tarjetitas
+//desplega unas tarjetas de informacion de los personajes
 function mostrarDescripcion(id,datos,userId){
     tarjetita.classList.toggle("open");
     contentDesc.innerHTML=`

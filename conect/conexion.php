@@ -1,4 +1,6 @@
 <?php
+
+#Esto es lo que da la conexion al resto del codigo con la base de datos
 function dameConexion(){
     $conn =mysqli_connect("localhost", "root", "", "marvelito");
 		
@@ -9,3 +11,4 @@ function dameConexion(){
 			return $conn;
 		}
 }
+//filezilla: W2n@7s7g1
